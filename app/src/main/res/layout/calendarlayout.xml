@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <CalendarView android:id="@+id/start_day"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusedMonthDateColor="#3ffa7f"
+            android:unfocusedMonthDateColor="#fafafa"
+            />
+        <CalendarView android:id="@+id/end_day"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusedMonthDateColor="#3ffa7f"
+            android:unfocusedMonthDateColor="#fafafa"
+            />
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

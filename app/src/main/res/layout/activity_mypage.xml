@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.a60047506.greattour.MypageActivity">
+
+    <TextView android:layout_height="0dp" android:layout_width="match_parent"
+        android:layout_weight="0.1" android:text="My payment"/>
+
+    <ScrollView android:layout_height="0dp" android:layout_width="match_parent"
+        android:layout_weight="0.2"> </ScrollView>
+
+    <TextView android:layout_height="0dp" android:layout_width="match_parent"
+        android:layout_weight="0.1" android:text="My Friend"/>
+
+    <ScrollView android:layout_height="0dp" android:layout_width="match_parent"
+        android:layout_weight="0.2"> </ScrollView>
+
+    <TextView android:layout_height="0dp" android:layout_width="match_parent" android:layout_weight="0.1" android:text="My schedule"/>
+
+    <ScrollView android:layout_height="0dp" android:layout_width="match_parent" android:layout_weight="0.2"> </ScrollView>
+
+
+    <LinearLayout android:orientation="horizontal" android:layout_height="0dp"
+        android:layout_width="match_parent" android:layout_weight="0.1">
+
+        <Button android:layout_height="match_parent" android:layout_width="wrap_content"
+            android:text="DON" android:layout_marginLeft="15dp" android:onClick="moveDon"/>
+
+        <Button android:layout_height="match_parent" android:layout_width="wrap_content"
+            android:text="schedule" android:onClick="moveSchedule"/>
+
+        <Button android:layout_height="match_parent" android:layout_width="wrap_content"
+            android:text="friend" android:onClick="moveFriend"/>
+
+        <Button android:layout_height="match_parent" android:layout_width="wrap_content"
+            android:text="my page" android:onClick="moveMypage"/>
+
+    </LinearLayout>
+
+</LinearLayout>
