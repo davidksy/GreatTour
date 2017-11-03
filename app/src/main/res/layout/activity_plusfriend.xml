@@ -13,11 +13,13 @@
 
     <Button android:layout_height="match_parent" android:layout_width="150dp"
         android:text="Find Schedule"
-        android:onClick="onBtnschedule"/>
+        android:onClick="onBtnschedule"
+        android:layout_marginLeft="25dp"/>
 
     <Button android:layout_height="match_parent" android:layout_width="150dp"
         android:text="Find Friend by ID"
         android:onClick="onBtnId"
+        android:layout_marginLeft="25dp"
         />
 
     </LinearLayout>

@@ -14,11 +14,13 @@
         android:layout_width="match_parent" android:layout_weight="0.1">
 
     <Button android:layout_height="match_parent" android:layout_width="150dp"
-        android:text="choose day" android:id="@+id/day" android:onClick="ChooseDay"/>
+        android:text="Day" android:id="@+id/day" android:onClick="ChooseDay"
+        android:layout_marginLeft="25dp"/>
 
 
         <Button android:layout_height="match_parent" android:layout_width="150dp"
-            android:text="choose category" android:id="@+id/category" android:onClick="ChooseCategory"/>
+            android:text="Category" android:id="@+id/category" android:onClick="ChooseCategory"
+            android:layout_marginLeft="25dp"/>
 
 
     </LinearLayout>

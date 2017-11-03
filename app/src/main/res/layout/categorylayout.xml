@@ -3,77 +3,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="horizontal">
-
-        <Button
+        <RadioButton
+            android:id="@+id/radio0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="음식"
-            android:onClick="btneat"
-            android:layout_marginLeft="30dp"
-            android:gravity="center"/>
+            android:checked="true"
+            android:text="음식" />
 
-        <Button
+        <RadioButton
+            android:id="@+id/radio1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="쇼핑"
-            android:onClick="btnshooping"
-            android:layout_marginLeft="30dp"
-            android:gravity="center"/>
+            android:text="쇼핑" />
 
-        <Button
+
+        <RadioButton
+            android:id="@+id/radio2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="교통"
-            android:onClick="btntraffic"
-            android:layout_marginLeft="30dp"
-            android:gravity="center"/>
+            android:text="교통" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="horizontal">
-
-        <Button
+        <RadioButton
+            android:id="@+id/radio3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="숙박"
-            android:onClick="btnhotel"
-            android:layout_marginLeft="30dp"
-            android:gravity="center"/>
+            android:text="숙박" />
 
-        <Button
+        <RadioButton
+            android:id="@+id/radio4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="관광지"
-            android:onClick="btnhotel"
-            android:layout_marginLeft="30dp"
-            android:gravity="center"/>
+            android:text="관광지" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="기타"
-            android:onClick="btnhotel"
-            android:layout_marginLeft="30dp"
-            android:gravity="center"/>
+    </RadioGroup>
 
 
-    </LinearLayout>
+
 
 </LinearLayout>

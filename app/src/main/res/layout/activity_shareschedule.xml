@@ -8,20 +8,33 @@
     tools:context="com.example.a60047506.greattour.SharescheduleActivity">
 
     <LinearLayout android:orientation="horizontal" android:layout_height="0dp"
-        android:layout_width="match_parent" android:layout_weight="0.1">
+        android:layout_width="match_parent" android:layout_weight="0.1"
+        android:layout_gravity="right">
 
-        <Button
-            android:id="@+id/add_city"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:onClick="onbtnCity"
-            android:text="Add City" />
-
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
+        <ImageButton
+            android:id="@+id/add_review"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitXY"
             android:onClick="onBtnReview"
-            android:text="Add Schedule" />
+            android:src="@drawable/add"
+            android:layout_gravity="right"
+            android:layout_marginLeft="10dp"
+            android:background="#f9f5f5"/>
+
+        <ImageButton
+            android:id="@+id/add_schedule"
+            android:layout_width="50dp"
+            android:scaleType="fitXY"
+            android:layout_height="50dp"
+            android:src="@drawable/clock"
+            android:onClick="onbtnCity"
+            android:layout_marginLeft="10dp"
+
+            android:background="#f9f5f5"
+        />
+
+
 
     </LinearLayout>
 

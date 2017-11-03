@@ -32,8 +32,24 @@ public class SharescheduleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_shareschedule);
 
         mContext = getApplicationContext();
-;
+
     }
+    public void onbtnCity(View v)
+    {
+        LayoutInflater layoutInflater =
+                (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View cityView = layoutInflater.inflate(R.layout.citylayout, null);
+
+        AlertDialog.Builder loginDialog =
+                new AlertDialog.Builder(SharescheduleActivity.this);
+        loginDialog.setTitle("어디로 가세요? 도시를 입력해주세요");
+        // loginDialog.setMessage("");
+        loginDialog.setView(cityView);
+        loginDialog.show();
+        //UploadFileToServer start_task = new UploadFileToServer();
+        //start_task.execute();
+    }
+
 
     public void onBtnReview(View v)
     {
@@ -96,21 +112,6 @@ public class SharescheduleActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onbtnCity(View v)
-    {
-        LayoutInflater layoutInflater =
-                (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View cityView = layoutInflater.inflate(R.layout.citylayout, null);
-
-        AlertDialog.Builder loginDialog =
-                new AlertDialog.Builder(SharescheduleActivity.this);
-        loginDialog.setTitle("어디로 가세요? 도시를 입력해주세요");
-       // loginDialog.setMessage("");
-        loginDialog.setView(cityView);
-        loginDialog.show();
-        //UploadFileToServer start_task = new UploadFileToServer();
-        //start_task.execute();
-    }
 
     /*
     @Override

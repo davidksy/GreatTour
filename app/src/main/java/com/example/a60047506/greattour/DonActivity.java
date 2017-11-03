@@ -57,10 +57,14 @@ public class DonActivity extends AppCompatActivity {
                 SpeechRecognitionResult speechRecognitionResult = (SpeechRecognitionResult) msg.obj;
                 List<String> results = speechRecognitionResult.getResults();
                 StringBuilder strBuf = new StringBuilder();
+                strBuf.append(results.get(0));
+
+                /*
                 for(String result : results) {
                     strBuf.append(result);
                     strBuf.append("\n");
                 }
+                */
                 mResult = strBuf.toString();
                 txtResult.setText(mResult);
                 break;

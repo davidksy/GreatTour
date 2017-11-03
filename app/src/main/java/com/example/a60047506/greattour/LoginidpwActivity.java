@@ -33,7 +33,7 @@ public class LoginidpwActivity extends AppCompatActivity {
         EditText userIdText = (EditText)findViewById(R.id.user_id);
         EditText passwordText = (EditText)findViewById(R.id.password);
         new Login().execute(
-                "http://172.16.2.20:52273/user/login",
+                "http://13.125.37.8:52273/login",
                 userIdText.getText().toString(),
                 passwordText.getText().toString());
     }
