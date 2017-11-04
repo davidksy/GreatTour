@@ -1,30 +1,41 @@
 package com.example.a60047506.greattour;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 
 public class SharescheduleActivity extends AppCompatActivity {
-
-
+    private static final int REQUEST_IMAGE_CAMERA = 11;
+    private static final int REQUEST_IMAGE_ALBUM = 12;
     private static final int PICK_FROM_CAMERA = 1;
     private static final int PICK_FROM_ALBUM = 2;
     private static final int CROP_FROM_CAMERA = 3;
     private int serverResponseCode = 0;
     Context mContext;
-    Uri fileUri;
-    String selectPath;
-    File albumFile;
-    Intent chooseIntent;
+    File tempFile;
+    String tempPath;
+    showImage task;
+    ImageView imView;
+    Bitmap bmImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +43,22 @@ public class SharescheduleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_shareschedule);
 
         mContext = getApplicationContext();
+
+        //외장 메모리 접근 권한 요청
+        int permissionCheck = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.READ_EXTERNAL_STORAGE);
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+        }
+
+        task = new showImage();
+
+        imView = (ImageView) findViewById(R.id.imgView);
+
+        task.execute("http://13.125.37.8:52273/upload_image/image_1509780302187_temp.jpg");
+        
+
 
     }
     public void onbtnCity(View v)
@@ -53,41 +80,11 @@ public class SharescheduleActivity extends AppCompatActivity {
 
     public void onBtnReview(View v)
     {
-
-
-        LayoutInflater layoutInflater =
-                (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View cityView = layoutInflater.inflate(R.layout.calendarlayout, null);
-
-        AlertDialog.Builder loginDialog =
-                new AlertDialog.Builder(SharescheduleActivity.this);
-        loginDialog.setTitle("언제 가세요? 날짜를 선택해주세요");
-        // loginDialog.setMessage("");
-        loginDialog.setView(cityView);
-        loginDialog.setPositiveButton("저장", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //webView.loadUrl(USERLIST_URL);
-            }
-        });
-        loginDialog.setNegativeButton("취소", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //webView.loadUrl(HOME_URL);
-            }
-        });
-        loginDialog.show();
-
-        /*
-        final Intent gallaryIntent = new Intent();
-        gallaryIntent.setType("image/*");
-        gallaryIntent.setAction(Intent.ACTION_PICK);
-
-        chooseIntent = Intent.createChooser(gallaryIntent, "이미지 선택");
-        Log.v("start","chooseIntent");
-        startActivityForResult(chooseIntent, PICK_FROM_ALBUM);
-        */
+        Intent intent = new Intent(SharescheduleActivity.this, ReviewActivity.class);
+        startActivity(intent);
     }
+
+
 
     public void moveDon(View v)
     {
@@ -113,88 +110,34 @@ public class SharescheduleActivity extends AppCompatActivity {
     }
 
 
-    /*
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode != RESULT_OK)  return;
-
-        switch(requestCode)
-        {
-            case PICK_FROM_ALBUM:
-            {
-                if(data == null)
-                {
-                    Toast.makeText(mContext, "선택된 사진이 없습니다.", Toast.LENGTH_SHORT);
-                    return;
-                }
-                try
-                {
-                    if(resultCode == RESULT_OK)
-                    {
-                        fileUri = data.getData();
-                        selectPath = fileUri.getPath();
-
-                        //albumFile = new File(Environment.getExternalStorageDirectory().getPath());
-
-                    }
-                    else
-                    {
-                        Log.v("start","Environmen_error");
-
-                    }
 
 
-                }catch(Exception e)
-                {
-                    Log.e("Take_Albumn_Error",e.toString());
-                }
-
-               break;
-            }
-
-            case PICK_FROM_CAMERA:
-            {
-
-            }
-
-            case CROP_FROM_CAMERA:
-            {
-
-            }
-        }
-    }
-
-
-    private class UploadFileToServer extends AsyncTask<String, String, String>
-    {
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
+    private class showImage extends AsyncTask<String, Integer,Bitmap>{
 
         @Override
-        protected String doInBackground(String... params) {
+        protected Bitmap doInBackground(String... urls) {
+            // TODO Auto-generated method stub
+            try{
+                URL myFileUrl = new URL(urls[0]);
+                HttpURLConnection conn = (HttpURLConnection)myFileUrl.openConnection();
+                conn.setDoInput(true);
+                conn.connect();
 
-            try {
+                InputStream is = conn.getInputStream();
+
+                bmImg = BitmapFactory.decodeStream(is);
 
 
-            }
-            catch(Exception e) {
+            }catch(IOException e){
                 e.printStackTrace();
             }
-
-            return null;
+            return bmImg;
         }
 
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
+        protected void onPostExecute(Bitmap img){
+            imView.setImageBitmap(bmImg);
         }
+
     }
-*/
-
-
-
 
 }

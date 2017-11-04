@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.naver.speech.clientapi.SpeechRecognitionResult;
@@ -25,7 +26,7 @@ public class DonActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final String CLIENT_ID = "T9kMIFxpZgqlsq39gWqY"; // "내 애플리케이션"에서 Client ID를 확인해서 이곳에 적어주세요./ private RecognitionHandler handler;
     private NaverRecognizer naverRecognizer;
-    private TextView txtResult;
+    private EditText txtResult;
     private Button btnStart;
     private String mResult;
     private AudioWriterPCM writer;
@@ -97,7 +98,8 @@ public class DonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_don);
 
-        txtResult = (TextView) findViewById(R.id.detail_info_txt);
+        //txtResult = (TextView) findViewById(R.id.detail_info_txt);
+        txtResult = (EditText) findViewById(R.id.detail_info_edit);
         btnStart = (Button) findViewById(R.id.saydetail);
 
         handler = new RecognitionHandler(this);
