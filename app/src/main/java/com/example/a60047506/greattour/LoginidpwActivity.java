@@ -24,14 +24,16 @@ import java.util.Iterator;
 
 public class LoginidpwActivity extends AppCompatActivity {
 
+    private  EditText userIdText;
+    private EditText passwordText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginidpw);
     }
     public void onbtnlogin(View view) {
-        EditText userIdText = (EditText)findViewById(R.id.user_id);
-        EditText passwordText = (EditText)findViewById(R.id.password);
+         userIdText = (EditText)findViewById(R.id.user_id);
+        passwordText = (EditText)findViewById(R.id.password);
         new Login().execute(
                 "http://13.125.37.8:52273/login",
                 userIdText.getText().toString(),
@@ -91,6 +93,7 @@ public class LoginidpwActivity extends AppCompatActivity {
                     SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
                     SharedPreferences.Editor editor = pref.edit();
                     editor.putString("token", token);
+                    editor.putString("user_id", userIdText.toString());
                     editor.commit();
                     Intent intent = new Intent(LoginidpwActivity.this, SharescheduleActivity.class);
                     startActivity(intent);

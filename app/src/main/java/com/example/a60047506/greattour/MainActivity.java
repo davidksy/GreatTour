@@ -13,7 +13,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
     }
 
     public void onBtnlogin(View v)
@@ -24,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onBtnReg(View v)
     {
-        Intent intent = new Intent(MainActivity.this, PlusfriendActivity.class);
+        Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
         startActivity(intent);
+        finish();
     }
 }

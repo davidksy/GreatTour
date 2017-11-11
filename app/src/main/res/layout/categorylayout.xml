@@ -7,7 +7,8 @@
     <RadioGroup
         android:id="@+id/radioGroup1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        >
 
         <RadioButton
             android:id="@+id/radio0"
@@ -43,6 +44,13 @@
 
     </RadioGroup>
 
+    <!--Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="완료"
+        android:onClick="Save"
+        android:layout_marginLeft="150dp"
+        android:gravity="center"/-->
 
 
 

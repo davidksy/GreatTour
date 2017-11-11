@@ -22,16 +22,21 @@
             </intent-filter>
         </activity>
         <!-- <activity android:name=".DonActivity" /> -->
-        <activity android:name=".DonActivity"
-            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".AirCalendarDatePickerActivity" />
+        <activity
+            android:name=".DonActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".PlusfriendActivity" />
         <activity android:name=".SharescheduleActivity" />
         <activity android:name=".MypageActivity" />
-        <activity android:name=".EmailLoginActivity" />
+        <activity android:name=".ListViewActivity" />
         <activity android:name=".LoginidpwActivity" />
         <!-- <activity android:name=".CalendarActivity"></activity> -->
-        <activity android:name=".ReviewActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name=".ReviewActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".ListDonActivity"></activity>
     </application>
 
 </manifest>
